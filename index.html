@@ -1,164 +1,297 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <header>
-  <img src="assets/afattygamer-logo.png" alt="AFattyGamer Logo" width="180">
-</header>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AFattyGamer Entertainment | A Silent Bullet™</title>
+  <meta name="description" content="A Silent Bullet™ is an original survival-horror IP by AFattyGamer Entertainment.">
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AFattyGamer Entertainment — A Silent Bullet™</title>
-  <meta name="description" content="AFattyGamer Entertainment is an independent studio. Our debut survival-horror IP, A Silent Bullet™, has 20M+ organic views across platforms." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="AFattyGamer Entertainment — A Silent Bullet™" />
-  <meta property="og:description" content="A cinematic survival-horror experience with 20M+ organic views." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/og-cover.jpg" />
-  <meta property="og:url" content="https://afattygamer.com" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="/assets/favicon.ico" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/afattygamer-logo.png">
 
   <style>
-    :root {
-      --bg: #0b0d10;
-      --card: #12151a;
-      --muted: #9aa4b2;
-      --text: #e6ecf3;
-      --brand: #7cf0ff;
-      --brand-2: #ff3b81;
+    :root{
+      --gold:#f3c35d;
+      --pink:#ff3b81;
+      --blue:#7cf0ff;
+      --text:#f5f5f5;
+      --muted:#b8bec8;
+      --glass:rgba(8,10,14,.68);
+      --line:rgba(255,255,255,.13);
     }
-    * { box-sizing: border-box }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
-    a { color: var(--brand); text-decoration: none }
-    a:hover { opacity: 0.9 }
 
-    .container { width: min(1100px, 92%); margin: 0 auto; }
-    header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(8px); background: rgba(11,13,16,0.6); border-bottom: 1px solid rgba(255,255,255,0.06) }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0 }
-    .brand { display: flex; gap: 12px; align-items: center; font-weight: 800; letter-spacing: .4px }
-    .brand img { width: 34px; height: 34px; border-radius: 8px }
-    .nav a.btn { padding: 10px 14px; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      min-height:100%;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:#050608;
+    }
 
-    .hero { padding: 80px 0 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: center }
-    .hero h1 { font-family: Rajdhani, Inter, sans-serif; font-size: clamp(36px, 5vw, 58px); line-height: 1.02; margin: 0 0 12px }
-    .hero p { color: var(--muted); font-size: clamp(16px, 2vw, 18px) }
-    .tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; background: #141922; border: 1px solid rgba(255,255,255,0.06); color: var(--muted); font-size: 12px; letter-spacing: .3px }
-    .cta { display: inline-flex; gap: 12px; margin-top: 18px }
-    .btn { padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); color: var(--text); font-weight: 600 }
-    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #091016; border: none }
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.86), rgba(0,0,0,.50), rgba(0,0,0,.88)),
+        url("assets/A%20SILENT%20BULLET%20_%20Offical%20Art%201.png") center/cover no-repeat;
+      z-index:-2;
+    }
 
-    .card { background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; }
-    .video { aspect-ratio: 16/9; width: 100%; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.45) }
-    .video iframe { width: 100%; height: 100%; border: 0 }
+    body:after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:radial-gradient(circle at 70% 25%, rgba(243,195,93,.22), transparent 32%);
+      z-index:-1;
+      pointer-events:none;
+    }
 
-    section { padding: 64px 0 }
-    h2 { font-family: Rajdhani, Inter, sans-serif; font-size: clamp(26px, 3.6vw, 36px); margin: 0 0 16px }
-    .muted { color: var(--muted) }
+    .wrap{width:min(1180px,92%);margin:auto}
 
-    .bio { display: grid; gap: 18px; grid-template-columns: 1fr 1fr }
-    .social { display: flex; gap: 12px }
-    .social a { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.1); border-radius: 999px }
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(0,0,0,.72);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(12px);
+    }
 
-    footer { padding: 28px 0 60px; border-top: 1px solid rgba(255,255,255,0.06); color: var(--muted) }
+    .nav{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
 
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding-top: 42px }
-      .bio { grid-template-columns: 1fr }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .brand img{width:58px;height:auto}
+
+    nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+
+    .btn{
+      display:inline-block;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--text);
+      text-decoration:none;
+      background:rgba(255,255,255,.06);
+      font-weight:800;
+    }
+
+    .btn.main{
+      background:linear-gradient(135deg,var(--gold),var(--pink));
+      color:#090909;
+      border:0;
+    }
+
+    .hero{
+      min-height:calc(100vh - 76px);
+      display:grid;
+      grid-template-columns:1fr .82fr;
+      gap:42px;
+      align-items:center;
+      padding:72px 0;
+    }
+
+    .kicker{
+      display:inline-block;
+      color:var(--gold);
+      border:1px solid rgba(243,195,93,.45);
+      background:rgba(0,0,0,.38);
+      padding:8px 13px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    h1{
+      font-family:Georgia, serif;
+      font-size:clamp(46px,7vw,92px);
+      line-height:.92;
+      margin:20px 0 18px;
+      text-transform:uppercase;
+      text-shadow:0 8px 35px #000;
+    }
+
+    .lead{
+      max-width:720px;
+      font-size:clamp(18px,2vw,23px);
+      line-height:1.45;
+      color:#e8edf5;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin:28px 0;
+    }
+
+    .stat,.card{
+      background:var(--glass);
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:0 20px 70px rgba(0,0,0,.38);
+    }
+
+    .stat{padding:16px}
+    .stat b{display:block;font-size:24px;color:var(--gold)}
+    .stat span{color:var(--muted);font-size:13px}
+
+    .poster{
+      overflow:hidden;
+      transform:rotate(1.3deg);
+    }
+
+    .poster img{
+      width:100%;
+      display:block;
+    }
+
+    section{padding:58px 0}
+
+    h2{
+      font-family:Georgia, serif;
+      font-size:clamp(30px,4vw,52px);
+      margin:0 0 18px;
+      text-transform:uppercase;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .card{padding:24px}
+
+    .card p{
+      color:var(--muted);
+      line-height:1.65;
+      font-size:16px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .gallery img{
+      width:100%;
+      border-radius:20px;
+      border:1px solid var(--line);
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      background:rgba(0,0,0,.72);
+      padding:28px 0;
+      color:var(--muted);
+    }
+
+    @media(max-width:900px){
+      .hero,.grid,.gallery{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+      .poster{transform:none}
+      nav{justify-content:flex-start}
     }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="container nav">
+    <div class="wrap nav">
       <div class="brand">
-        <img src="/assets/afattygamer-logo.png" alt="AFattyGamer logo"
-             onerror="this.style.display='none'; document.getElementById('textLogo').style.display='inline';" />
-        <span id="textLogo" style="display:none">AFattyGamer Entertainment</span>
+        <img src="assets/afattygamer-logo.png" alt="AFattyGamer Entertainment logo">
+        <span>AFattyGamer Entertainment</span>
       </div>
-      <nav style="display:flex; gap:14px">
-        <a class="btn" href="#trailer">Trailer</a>
+      <nav>
         <a class="btn" href="#about">About</a>
+        <a class="btn" href="#gallery">Gallery</a>
         <a class="btn" href="#contact">Contact</a>
-        <a class="btn primary" href="mailto:contact@afattygamer.com">Email us</a>
+        <a class="btn main" href="mailto:contact@afattygamer.com">Email Us</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <!-- HERO -->
+  <main class="wrap">
     <section class="hero">
       <div>
-        <span class="tag">Original IP • Survival-Horror</span>
+        <span class="kicker">Original IP • Survival Horror • Demo 1.5</span>
         <h1>A Silent Bullet™</h1>
-        <p>Our debut title is a cinematic survival-horror experience built for modern PCs. The concept trailer has surpassed <strong>20M+ organic views</strong> across platforms.</p>
-        <div class="cta">
-          <a class="btn primary" href="https://www.instagram.com/p/DN09bBlXmRK/" target="_blank" rel="noopener">Watch Trailer</a>
-          <a class="btn" href="#press">Press Kit</a>
+        <p class="lead">
+          A cinematic survival-horror experience from AFattyGamer Entertainment.
+          Built around tension, silence, consequence, and a story the internet refuses to ignore.
+        </p>
+
+        <div class="stats">
+          <div class="stat"><b>20M+</b><span>organic views across platforms</span></div>
+          <div class="stat"><b>10M+</b><span>Stephanie Blake IP shares</span></div>
+          <div class="stat"><b>1M+</b><span>recent outtake shares in 24 hours</span></div>
         </div>
+
+        <a class="btn main" href="#contact">Follow the Project</a>
+        <a class="btn" href="#about">Enter the Hallway</a>
       </div>
-      <div class="card video" id="trailer">
-        <iframe src="https://www.instagram.com/p/DN09bBlXmRK/embed"
-                title="A Silent Bullet — Trailer"
-                allowfullscreen></iframe>
+
+      <div class="poster card">
+        <img src="assets/Virgin%20Stephanie%20Blake%20-%20AFG%20%231.jpg" alt="Stephanie Blake A Silent Bullet artwork">
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
-      <h2>About AFattyGamer Entertainment</h2>
-      <div class="bio">
-        <div class="card" style="padding:20px">
-          <p class="muted">AFattyGamer Entertainment is a small, fire-driven indie studio focused on stylish, emotionally tense genre experiences. With A Silent Bullet™, we blend deliberate pacing, grounded combat, and bold visual design to create a modern survival-horror statement.</p>
-          <p class="muted">We’re actively speaking with partners who share our vision and can help us bring the game to millions of players.</p>
+      <h2>Independent. Loud. Unowned.</h2>
+      <div class="grid">
+        <div class="card">
+          <p>
+            AFattyGamer Entertainment is building A Silent Bullet™ as a wholly owned original survival-horror IP.
+            The project blends cinematic dread, school-horror atmosphere, stealth tension, and character-driven tragedy.
+          </p>
         </div>
-        <div class="card" style="padding:20px">
-          <h3 style="margin:0 0 8px">Contact</h3>
-          <p class="muted">Business & press: <a href="mailto:contact@afattygamer.com">contact@afattygamer.com</a></p>
-          <div class="social" style="margin-top:10px">
-            <a href="https://www.instagram.com/afattygamer/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-            <a href="https://www.tiktok.com/@asilentbullet" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
-            <a href="https://x.com/asilentbullet" target="_blank" rel="noopener" aria-label="X">X</a>
-            <a href="https://www.youtube.com/@AFattyGamerEntertainment" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
-          </div>
+        <div class="card">
+          <p>
+            This site is the home base for the project: updates, demo access plans, Kickstarter preparation,
+            press contact, and future direct community announcements.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- PRESS & PARTNERS (hidden for now) -->
-    <!--
-    <section id="press">
-      <h2>Press & Partners</h2>
-      <p class="muted">Quick links for reviewers, platform, and publishing teams.</p>
-      <div class="social" style="flex-wrap:wrap; gap:10px; margin-top:12px">
-        <a href="/press/AFattyGamer_PitchDeck.pdf">Pitch Deck (PDF)</a>
-        <a href="/press/ASilentBullet_OnePager.pdf">One-Pager</a>
-        <a href="/press/ASilentBullet_Screenshots.zip">Screenshots</a>
-        <a href="/press/ASilentBullet_LogoPack.zip">Logo Pack</a>
+    <section id="gallery">
+      <h2>Stephanie Blake®</h2>
+      <div class="gallery">
+        <img src="assets/Virgin%20Stephanie%20Blake%20-%20Outtake.jpg" alt="Stephanie Blake outtake artwork">
+        <img src="assets/A%20SILENT%20BULLET%20_%20Offical%20Art%201.png" alt="A Silent Bullet official art">
       </div>
     </section>
-    -->
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Business, press, platform, and partnership inquiries:</p>
+        <p><a class="btn main" href="mailto:contact@afattygamer.com">contact@afattygamer.com</a></p>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div class="container" id="contact" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px">
-      <div>© <span id="y"></span> AFattyGamer Entertainment. All rights reserved.</div>
-      <div class="social">
-        <a href="https://www.instagram.com/afattygamer/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@asilentbullet" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://x.com/asilentbullet" target="_blank" rel="noopener">X</a>
-        <a href="https://www.youtube.com/@AFattyGamerEntertainment" target="_blank" rel="noopener">YouTube</a>
-      </div>
-    </div>
+    <div class="wrap">© 2026 AFattyGamer Entertainment LLC. A Silent Bullet™. All rights reserved.</div>
   </footer>
-
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-
